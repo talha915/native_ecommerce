@@ -4,6 +4,8 @@ import {Icon, Avatar} from 'react-native-elements';
 import {DrawerNavigator, StackNavigator, DrawerItems, SafeAreaView } from 'react-navigation';
 import Home from '../pages/Home';
 import Contact from '../pages/Contact';
+import Laptop from '../pages/Laptop';
+import Mobile from '../pages/Mobile';
 import DrawerComponent from './DrawerComponent';
 const {height, width} = Dimensions.get('window');
 
@@ -12,6 +14,50 @@ const HomeStack = StackNavigator({
         screen: Home,
         navigationOptions: ({navigation}) => ({
             headerTitle: 'Home',
+            headerTitleStyle: {
+                marginLeft: width-240
+            },
+            headerRight: (
+                <TouchableOpacity onPress={()=>navigation.navigate('DrawerToggle')}>
+                    <Icon
+                        name="bars"
+                        type="font-awesome"
+                        size= {25}
+                        margin={15}
+                    />
+                </TouchableOpacity>
+            )
+        })
+    }
+});
+
+const LaptopStack = StackNavigator({
+    Laptop: {
+        screen: Laptop,
+        navigationOptions: ({navigation}) => ({
+            headerTitle: 'Laptops',
+            headerTitleStyle: {
+                marginLeft: width-240
+            },
+            headerRight: (
+                <TouchableOpacity onPress={()=>navigation.navigate('DrawerToggle')}>
+                    <Icon
+                        name="bars"
+                        type="font-awesome"
+                        size= {25}
+                        margin={15}
+                    />
+                </TouchableOpacity>
+            )
+        })
+    }
+});
+
+const MobileStack = StackNavigator({
+    Mobile: {
+        screen: Mobile,
+        navigationOptions: ({navigation}) => ({
+            headerTitle: 'Mobile',
             headerTitleStyle: {
                 marginLeft: width-240
             },
@@ -56,6 +102,8 @@ const ContactStack = StackNavigator({
 const Screens = DrawerNavigator(
     {
         Home: {screen: HomeStack},
+        Laptop: {screen: LaptopStack},
+        Mobile: {screen: MobileStack},
         Contact: {screen: ContactStack}
     },
     {
