@@ -1,10 +1,10 @@
 import React from 'react';
-import {TouchableOpacity, Dimensions} from 'react-native';
-import {Icon} from 'react-native-elements';
-import {DrawerNavigator, StackNavigator} from 'react-navigation';
+import {TouchableOpacity, Dimensions, View, Text, StyleSheet} from 'react-native';
+import {Icon, Avatar} from 'react-native-elements';
+import {DrawerNavigator, StackNavigator, DrawerItems, SafeAreaView } from 'react-navigation';
 import Home from '../pages/Home';
 import Contact from '../pages/Contact';
-
+import DrawerComponent from './DrawerComponent';
 const {height, width} = Dimensions.get('window');
 
 const HomeStack = StackNavigator({
@@ -51,9 +51,17 @@ const ContactStack = StackNavigator({
     }
 });
 
-const Screens = DrawerNavigator({
-    Home: {screen: HomeStack},
-    Contact: {screen: ContactStack}
-});
 
+  
+const Screens = DrawerNavigator(
+    {
+        Home: {screen: HomeStack},
+        Contact: {screen: ContactStack}
+    },
+    {
+        paths: './DrawerComponent',
+        contentComponent: DrawerComponent
+    }
+);
+  
 export default Screens;
