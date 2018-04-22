@@ -75,7 +75,28 @@ export default class DrawerComponent extends Component{
                             <View style={styles.blockContent}>
                                 <TouchableOpacity>
                                     <Text style={styles.blockText} onPress={this.navigateToScreen('Mobile')}>
-                                        Mobiles
+                                        Mobiles 
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View>
+                            <View style={styles.block}>
+                                <Text style={styles.blockText}>
+                                    Clothes Section
+                                </Text>
+                            </View>
+                            <View style={styles.blockContent}>
+                                <TouchableOpacity>
+                                    <Text style={styles.blockText} onPress={this.navigateToScreen('Shirts')}>
+                                        Shirts
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.blockContent}>
+                                <TouchableOpacity>
+                                    <Text style={styles.blockText} onPress={this.navigateToScreen('Pants')}>
+                                        Pants & Shorts 
                                     </Text>
                                 </TouchableOpacity>
                             </View>

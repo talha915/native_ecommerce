@@ -6,6 +6,8 @@ import Home from '../pages/Home';
 import Contact from '../pages/Contact';
 import Laptop from '../pages/Laptop';
 import Mobile from '../pages/Mobile';
+import Shirts from '../pages/Shirts';
+import Pants from '../pages/Pants';
 import DrawerComponent from './DrawerComponent';
 const {height, width} = Dimensions.get('window');
 
@@ -97,13 +99,57 @@ const ContactStack = StackNavigator({
     }
 });
 
+const ShirtsStack = StackNavigator({
+    Shirts: {
+        screen: Shirts,
+        navigationOptions: ({navigation}) => ({
+            headerTitle: 'Shirts',
+            headerTitleStyle: {
+                marginLeft: width-250
+            },
+            headerRight: (
+                <TouchableOpacity onPress={()=> navigation.navigate('DrawerToggle')}>
+                    <Icon
+                        name="bars"
+                        size={25}
+                        margin={15}
+                        type="font-awesome"
+                    />
+                </TouchableOpacity>
+            )
+        })
+    }
+});
 
+const PantsStack = StackNavigator({
+    Pants: {
+        screen: Pants,
+        navigationOptions: ({navigation}) => ({
+            headerTitle: 'Pants & Shorts',
+            headerTitleStyle: {
+                marginLeft: width-250
+            },
+            headerRight: (
+                <TouchableOpacity onPress={()=> navigation.navigate('DrawerToggle')}>
+                    <Icon
+                        name="bars"
+                        size={25}
+                        margin={15}
+                        type="font-awesome"
+                    />
+                </TouchableOpacity>
+            )
+        })
+    }
+});
   
 const Screens = DrawerNavigator(
     {
         Home: {screen: HomeStack},
         Laptop: {screen: LaptopStack},
         Mobile: {screen: MobileStack},
+        Shirts: {screen: ShirtsStack},
+        Pants: {screen: PantsStack},
         Contact: {screen: ContactStack}
     },
     {
